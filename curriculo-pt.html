@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currículo | Monica Tadeu Maciel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #020611;
+      --card-bg: rgba(19, 25, 39, 0.96);
+      --text-main: #eef2fb;
+      --text-soft: #98a2b3;
+      --accent: #58d7ff;
+      --accent-2: #5d86ff;
+      --border-soft: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(88, 215, 255, 0.10), transparent 30%),
+        radial-gradient(circle at 50% 55%, rgba(30, 80, 200, 0.08), transparent 45%),
+        var(--bg-dark);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .resume-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 60px;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .back-link,
+    .lang-link {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid rgba(88, 215, 255, 0.25);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .back-link:hover,
+    .lang-link:hover {
+      transform: scale(1.03);
+      filter: brightness(1.08);
+    }
+
+    .back-link:active,
+    .lang-link:active {
+      transform: scale(0.97);
+    }
+
+    .resume-card {
+      background: linear-gradient(145deg, rgba(25, 30, 45, 0.96), rgba(18, 22, 36, 0.96));
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .resume-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+
+    .resume-header h1 {
+      font-size: 2.4rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .resume-header p {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 14px;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .resume-section {
+      margin-bottom: 28px;
+    }
+
+    .resume-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-section h2 {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .summary-text {
+      color: #d8deea;
+      font-size: 0.98rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 28px;
+    }
+
+    .skills-grid ul {
+      list-style: none;
+    }
+
+    .skills-grid li {
+      color: #d8deea;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 14px;
+      font-size: 0.96rem;
+    }
+
+    .skills-grid li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .job {
+      margin-bottom: 24px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: #ffffff;
+    }
+
+    .job-company {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-top: 2px;
+    }
+
+    .job-date {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .job ul {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+
+    .job li {
+      color: #d8deea;
+      margin-bottom: 8px;
+      font-size: 0.96rem;
+    }
+
+    .edu-item,
+    .cert-item,
+    .project-item {
+      margin-bottom: 14px;
+    }
+
+    .edu-item:last-child,
+    .cert-item:last-child,
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 0.98rem;
+    }
+
+    .item-subtitle {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-top: 3px;
+    }
+
+    .project-item p {
+      color: #d8deea;
+      font-size: 0.96rem;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 800px) {
+      .resume-card {
+        padding: 24px;
+      }
+
+      .resume-header h1 {
+        font-size: 1.9rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .top-actions {
+        display: none;
+      }
+
+      .resume-page {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .resume-card {
+        box-shadow: none;
+        border: none;
+        background: #ffffff;
+        color: #000000;
+        padding: 0;
+      }
+
+      .resume-header,
+      .resume-section h2,
+      .contact-line,
+      .item-subtitle,
+      .job-company,
+      .job-date {
+        color: #333333 !important;
+      }
+
+      .resume-section h2,
+      .contact-line a {
+        color: #000000 !important;
+      }
+
+      .summary-text,
+      .job li,
+      .skills-grid li,
+      .project-item p {
+        color: #111111 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-page">
+    <div class="top-actions">
+      <a class="back-link" href="index.html">← Voltar ao Portfólio</a>
+      <a class="lang-link" href="resume-en.html">Resume in English</a>
+    </div>
+
+    <div class="resume-card">
+      <header class="resume-header">
+        <h1>Monica Tadeu Maciel</h1>
+        <p>Profissional de TI | Suporte Técnico Sênior | Sistemas | Infraestrutura | Automação</p>
+
+        <div class="contact-line">
+          <span>Toronto, ON</span>
+          <span>(+1) 437-499-8608</span>
+          <a href="mailto:monicatd.maciel@outlook.com">monicatd.maciel@outlook.com</a>
+          <a href="https://linkedin.com/in/monicatdmaciel" target="_blank" rel="noopener noreferrer">linkedin.com/in/monicatdmaciel</a>
+        </div>
+      </header>
+
+      <section class="resume-section">
+        <h2>Resumo Profissional</h2>
+        <p class="summary-text">
+          Profissional de TI com mais de 10 anos de experiência em suporte técnico, administração de sistemas e infraestrutura, atuando em ambientes corporativos e de grande porte. Forte experiência com Windows, Linux, Active Directory, Microsoft 365 e resolução de problemas complexos. Nos últimos anos, ampliou sua atuação para ambientes self-hosted, containers com Docker, proxy reverso, desenvolvimento web e automação com Python, demonstrando capacidade de construir e manter soluções completas, desde infraestrutura até aplicação. Reconhecida pela comunicação clara, organização, foco em estabilidade operacional e melhoria contínua.
+        </p>
+      </section>
+
+      <section class="resume-section">
+        <h2>Principais Competências</h2>
+        <div class="skills-grid">
+          <ul>
+            <li>Suporte Técnico Nível 2/3</li>
+            <li>Windows 10/11 e suporte a endpoints</li>
+            <li>Active Directory e gestão de acessos</li>
+            <li>Microsoft 365 (Outlook, Teams, OneDrive)</li>
+            <li>Linux / Unix (Solaris, Debian)</li>
+            <li>Redes: TCP/IP, DNS e DHCP</li>
+          </ul>
+          <ul>
+            <li>Docker e Docker Compose</li>
+            <li>Proxy reverso com Nginx e Caddy</li>
+            <li>HTML, CSS, Bootstrap, WordPress e Joomla</li>
+            <li>Automação com Python</li>
+            <li>MySQL e fundamentos de banco de dados</li>
+            <li>ITIL, documentação técnica e troubleshooting estruturado</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Experiência Profissional</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">IT Support / Network Technician</div>
+              <div class="job-company">Cestar College of Business, Health and Technology – Toronto, ON</div>
+            </div>
+            <div class="job-date">Sep 2017 – Dec 2025</div>
+          </div>
+          <ul>
+            <li>Atuação como ponto de escalonamento para incidentes técnicos complexos envolvendo Windows, hardware, aplicações e serviços corporativos.</li>
+            <li>Administração de Active Directory, incluindo criação de usuários, grupos, permissões e suporte a acessos.</li>
+            <li>Suporte avançado ao Microsoft 365, especialmente Outlook, Teams e OneDrive.</li>
+            <li>Atendimento e suporte a desktops, laptops, impressoras e periféricos, reduzindo indisponibilidade para usuários.</li>
+            <li>Aplicação de práticas baseadas em ITIL para gerenciamento de incidentes, requisições e escalonamentos.</li>
+            <li>Criação de documentação técnica e base de conhecimento para melhoria da eficiência operacional.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Desenvolvedora Web</div>
+              <div class="job-company">Mandala Group – Mississauga, ON</div>
+            </div>
+            <div class="job-date">Feb 2016 – Oct 2016</div>
+          </div>
+          <ul>
+            <li>Desenvolvimento e manutenção de websites responsivos utilizando WordPress, Bootstrap, HTML e CSS.</li>
+            <li>Otimização de performance e ajustes em banco de dados MySQL.</li>
+            <li>Tradução de necessidades de negócio em soluções web funcionais e organizadas.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Administradora Sênior de Sistemas e Infraestrutura</div>
+              <div class="job-company">Serasa Experian – São Paulo, Brasil</div>
+            </div>
+            <div class="job-date">May 2008 – Mar 2015</div>
+          </div>
+          <ul>
+            <li>Participação na transformação da infraestrutura de data center para ambiente multi-site com foco em alta disponibilidade e continuidade de negócios.</li>
+            <li>Administração e manutenção de servidores Solaris em ambientes críticos 24x7.</li>
+            <li>Suporte nível 3 para plataformas corporativas e incidentes de maior complexidade.</li>
+            <li>Atuação em ambientes com requisitos elevados de segurança, resiliência e conformidade.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Projetos Técnicos</h2>
+
+        <div class="project-item">
+          <div class="item-title">Ambiente Self-Hosted com Docker</div>
+          <p>
+            Construção e administração de ambiente próprio com aplicações isoladas em containers, utilizando Docker Compose, proxy reverso e publicação de serviços em domínio personalizado.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <div class="item-title">Portfólio Técnico com Infraestrutura Própria</div>
+          <p>
+            Desenvolvimento de website de portfólio para demonstrar habilidades em suporte, infraestrutura, websites, automação e publicação de aplicações.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <div class="item-title">Automação com Python</div>
+          <p>
+            Desenvolvimento de automação para processamento de e-mails e transcrição de mensagens de voz, com foco em produtividade e otimização de rotinas.
+          </p>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Formação Acadêmica</h2>
+
+        <div class="edu-item">
+          <div class="item-title">Bacharelado em Ciência da Computação</div>
+          <div class="item-subtitle">Brasil</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="item-title">Pós-Graduação – Internet Programming & Database Management</div>
+          <div class="item-subtitle">Lambton College – Canadá</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="item-title">Pós-Graduação – Administração de Banco de Dados (Oracle)</div>
+          <div class="item-subtitle">Brasil</div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Certificações e Desenvolvimento</h2>
+
+        <div class="cert-item">
+          <div class="item-title">Linux Essentials – LPI</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="item-title">ITIL Foundation – EXIN</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="item-title">Python – Hashtag</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="item-title">Cloud Services Administrator – 4Linux</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

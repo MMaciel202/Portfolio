@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+
+# Node
+node_modules/
+dist/
+build/
+
+# Python
+__pycache_
+*.pyc
+.venv/
+venv/
+
+# Local configs
+*.local
+*.doc
+*.docx
+~$*.docx
+*old*
