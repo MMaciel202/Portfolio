@@ -3,12 +3,12 @@ const typedText = document.getElementById("typedText");
 const contactForm = document.getElementById("contactForm");
 const resumeLink = document.getElementById("resumeLink");
 
-let currentLang = "pt";
+let currentLang = localStorage.getItem("lang") || "pt";
 
 const typedValues = {
   pt: [
-    "IT Support | Infrastructure | Docker",
-    "Troubleshooting | Websites | Automation",
+    "IT Support | Infraestrutura | Docker",
+    "Troubleshooting | Websites | Automação",
     "Home Hosting | Reverse Proxy | Python"
   ],
   en: [
@@ -25,17 +25,18 @@ let typingTimeout;
 
 const typingSpeed = 90;
 const deletingSpeed = 45;
-const pauseAtEnd = 2200;
+const pauseAtEnd = 2000;
 const pauseBeforeTyping = 400;
 
 function updateResumeLink(lang) {
   if (!resumeLink) return;
-
   resumeLink.href = lang === "pt" ? "curriculo-pt.html" : "resume-en.html";
 }
 
 function setLanguage(lang) {
   currentLang = lang;
+  localStorage.setItem("lang", lang);
+
   document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
 
   document.querySelectorAll("[data-pt][data-en]").forEach((el) => {
@@ -100,12 +101,14 @@ function startTyping() {
   }
 }
 
+/* LANGUAGE BUTTON */
 if (langToggle) {
   langToggle.addEventListener("click", () => {
     setLanguage(currentLang === "pt" ? "en" : "pt");
   });
 }
 
+/* CONTACT FORM */
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -123,4 +126,5 @@ if (contactForm) {
   });
 }
 
-setLanguage("pt");
+/* INIT */
+setLanguage(currentLang);
