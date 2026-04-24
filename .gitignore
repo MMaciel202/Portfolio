@@ -30,3 +30,4 @@ venv/
 *.docx
 ~$*.docx
 *old*
+*Copy*

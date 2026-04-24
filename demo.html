@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monica Maciel | Scheduler with Microsoft 365</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/demo.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="logo">&lt;Dev <span>/&gt;</span></div>
+
+    <nav class="main-nav">
+      <a href="index.html#home" data-pt="Home" data-en="Home">Home</a>
+      <a href="index.html#projects" class="active" data-pt="Projetos" data-en="Projects">Projetos</a>
+      <a href="index.html#certifications" data-pt="Certificações" data-en="Certifications">Certificações</a>
+      <a id="resumeLink" href="resume-en.html" data-pt="CV" data-en="Resume">Resume</a>
+      <a href="index.html#contact" data-pt="Contato" data-en="Contact">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="lang-btn" id="langToggle">EN</button>
+      <a href="index.html#contact" class="hire-btn" data-pt="Hire Me" data-en="Hire Me">Hire Me</a>
+    </div>
+  </header>
+
+  <main class="architecture-page scheduler-page">
+    <section class="architecture-hero scheduler-hero">
+      <div class="architecture-container scheduler-hero-container">
+        <p class="scheduler-project-label" data-pt="PROJETO DE AUTOMAÇÃO" data-en="AUTOMATION PROJECT">
+          PROJETO DE AUTOMAÇÃO
+        </p>
+
+        <h1 data-pt="Scheduler com Microsoft 365" data-en="Scheduler with Microsoft 365">
+          Scheduler com Microsoft 365
+        </h1>
+
+        <p class="architecture-subtitle scheduler-hero-subtitle"
+           data-pt="Projeto construído com Python, FastAPI, Microsoft Graph e Supabase para consultar disponibilidade no Outlook Calendar, criar appointments, armazenar bookings com token seguro de cancelamento e evitar conflitos de horário."
+           data-en="Project built with Python, FastAPI, Microsoft Graph, and Supabase to read Outlook Calendar availability, create appointments, store bookings with a secure cancellation token, and prevent time-slot conflicts.">
+          Projeto construído com Python, FastAPI, Microsoft Graph e Supabase para consultar disponibilidade no Outlook Calendar, criar appointments, armazenar bookings com token seguro de cancelamento e evitar conflitos de horário.
+        </p>
+
+        <div class="scheduler-tags">
+          <span>Python</span>
+          <span>FastAPI</span>
+          <span>Microsoft 365</span>
+          <span>Outlook</span>
+          <span>Supabase</span>
+          <span>API</span>
+        </div>
+
+        <div class="architecture-actions scheduler-actions">
+          <a href="https://github.com/MMaciel202"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-outline"
+             data-pt="GitHub"
+             data-en="GitHub">
+            GitHub
+          </a>
+
+          <a href="schedule-architecture.html"
+             class="btn btn-primary"
+             data-pt="Arquitetura"
+             data-en="Architecture">
+            Arquitetura
+          </a>
+
+          <a href="index.html#projects"
+             class="btn btn-outline"
+             data-pt="Voltar aos Projetos"
+             data-en="Back to Projects">
+            Voltar aos Projetos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture-content" id="scheduler-demo">
+      <div class="architecture-container">
+
+        <div class="scheduler-row scheduler-row-top">
+          <div class="architecture-card hover-cyan scheduler-card scheduler-demo-card">
+            <h2 data-pt="Horários Disponíveis" data-en="Available Time Slots">Horários Disponíveis</h2>
+
+            <p data-pt="Selecione um dia para carregar os horários disponíveis do calendário Appointments."
+               data-en="Select a day to load available time slots from the Appointments calendar.">
+              Selecione um dia para carregar os horários disponíveis do calendário Appointments.
+            </p>
+
+            <div class="scheduler-calendar-box">
+              <div class="scheduler-calendar-header">
+                <button type="button" class="scheduler-nav" id="prevMonthBtn">‹</button>
+                <div id="calendarMonthLabel" class="scheduler-month-label"></div>
+                <button type="button" class="scheduler-nav" id="nextMonthBtn">›</button>
+              </div>
+
+              <div class="scheduler-weekdays" id="calendarWeekdays">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+              </div>
+
+              <div id="calendarGrid" class="scheduler-calendar-grid"></div>
+            </div>
+
+            <div class="scheduler-info-box">
+              <div class="scheduler-info-title" data-pt="Data selecionada" data-en="Selected date">Data selecionada</div>
+              <div id="selectedDateText" class="scheduler-small">Nenhuma data selecionada.</div>
+            </div>
+
+            <div class="scheduler-info-box">
+              <div class="scheduler-info-title" data-pt="Horário selecionado" data-en="Selected slot">Horário selecionado</div>
+              <div id="selectedSlotText" class="scheduler-small">Nenhum horário selecionado.</div>
+            </div>
+
+            <div id="slotsContainer" class="scheduler-slots"></div>
+
+            <div class="scheduler-result-box" id="slotsResultBox" style="display:none;">
+              <div id="slotsResult" class="scheduler-small"></div>
+            </div>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card scheduler-book-card">
+            <h2 data-pt="Criar Reserva" data-en="Create Booking">Criar Reserva</h2>
+
+            <p data-pt="Depois de selecionar um horário, preencha os dados e crie o appointment."
+               data-en="After selecting a slot, fill in the details and create the appointment.">
+              Depois de selecionar um horário, preencha os dados e crie o appointment.
+            </p>
+
+            <div class="scheduler-form-group">
+              <label for="name" data-pt="Nome" data-en="Name">Nome</label>
+              <input type="text" id="name" placeholder="Monica Maciel">
+            </div>
+
+            <div class="scheduler-form-group">
+              <label for="email" data-pt="Email" data-en="Email">Email</label>
+              <input type="email" id="email" placeholder="monica@email.com">
+            </div>
+
+            <div class="scheduler-form-group">
+              <label for="startTime" data-pt="Hora de Início" data-en="Start Time">Hora de Início</label>
+              <input type="text" id="startTime" readonly placeholder="10:00">
+            </div>
+
+            <div class="scheduler-form-group">
+              <label for="endTime" data-pt="Hora de Término" data-en="End Time">Hora de Término</label>
+              <input type="text" id="endTime" readonly placeholder="11:00">
+            </div>
+
+            <button class="btn btn-primary scheduler-full-btn"
+                    id="bookBtn"
+                    type="button"
+                    data-pt="Reservar Horário"
+                    data-en="Book Appointment">
+              Reservar Horário
+            </button>
+
+            <div class="scheduler-result-box" id="bookResultBox">
+              <div id="bookStatusMessage" class="scheduler-small">Nenhuma reserva criada ainda.</div>
+
+              <div id="bookingSuccessPanel" style="display:none; margin-top:16px;">
+                <div class="scheduler-success-banner" id="bookingSuccessBanner">Reserva criada com sucesso.</div>
+
+                <div style="margin-top:16px;"
+                     class="scheduler-info-title"
+                     data-pt="Token de Cancelamento"
+                     data-en="Cancellation Token">
+                  Token de Cancelamento
+                </div>
+
+                <div class="scheduler-token-row">
+                  <input type="text" id="generatedCancelToken" readonly />
+                  <button type="button" class="scheduler-copy-btn" id="copyTokenBtn" title="Copy token">📋</button>
+                </div>
+
+                <div id="copyFeedback" class="scheduler-small" style="margin-top:10px;"></div>
+                <div id="emailFeedback" class="scheduler-small" style="margin-top:8px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scheduler-row scheduler-row-bottom">
+          <div class="architecture-card hover-cyan scheduler-card scheduler-how-card">
+            <h2 data-pt="Como Funciona" data-en="How It Works">Como Funciona</h2>
+
+            <div class="scheduler-flow scheduler-flow-compact">
+              <div class="scheduler-flow-step">
+                <strong>1.</strong>
+                <span data-pt="A demo consulta a disponibilidade no calendário Appointments."
+                      data-en="The demo checks availability in the Appointments calendar.">
+                  A demo consulta a disponibilidade no calendário Appointments.
+                </span>
+              </div>
+
+              <div class="scheduler-flow-step">
+                <strong>2.</strong>
+                <span data-pt="A API valida conflitos no Outlook e no Supabase."
+                      data-en="The API validates conflicts in Outlook and Supabase.">
+                  A API valida conflitos no Outlook e no Supabase.
+                </span>
+              </div>
+
+              <div class="scheduler-flow-step">
+                <strong>3.</strong>
+                <span data-pt="O booking cria o evento, salva o registro e gera um token seguro."
+                      data-en="Booking creates the event, stores the record, and generates a secure token.">
+                  O booking cria o evento, salva o registro e gera um token seguro.
+                </span>
+              </div>
+
+              <div class="scheduler-flow-step">
+                <strong>4.</strong>
+                <span data-pt="O cancelamento remove o evento e libera o horário."
+                      data-en="Cancellation removes the event and frees the slot.">
+                  O cancelamento remove o evento e libera o horário.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card scheduler-cancel-card">
+            <h2 data-pt="Cancelar Reserva" data-en="Cancel Booking">Cancelar Reserva</h2>
+
+            <p data-pt="Cancele uma reserva existente usando o token seguro armazenado no Supabase."
+               data-en="Cancel an existing booking using the secure token stored in Supabase.">
+              Cancele uma reserva existente usando o token seguro armazenado no Supabase.
+            </p>
+
+            <div class="scheduler-form-group">
+              <label for="cancelToken" data-pt="Token de Cancelamento" data-en="Cancel Token">Token de Cancelamento</label>
+              <input type="text" id="cancelToken" placeholder="">
+            </div>
+
+            <button class="btn btn-outline scheduler-full-btn"
+                    id="cancelBtn"
+                    type="button"
+                    data-pt="Cancelar Appointment"
+                    data-en="Cancel Appointment">
+              Cancelar Appointment
+            </button>
+
+            <div class="scheduler-result-box">
+              <div id="cancelStatusMessage" class="scheduler-small">Nenhum cancelamento enviado ainda.</div>
+
+              <div id="cancelSuccessPanel" style="display:none; margin-top:16px;">
+                <div class="scheduler-success-banner" id="cancelSuccessBanner">Appointment cancelado com sucesso.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script src="js/demo.js"></script>
+</body>
+</html>

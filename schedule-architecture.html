@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monica Maciel | Scheduler Architecture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/demo.css" />
+  <style>
+    .arch-img-en { display: none; }
+
+    html[lang="en"] .arch-img-pt { display: none; }
+    html[lang="en"] .arch-img-en { display: block; }
+
+    html[lang="pt-BR"] .arch-img-pt { display: block; }
+    html[lang="pt-BR"] .arch-img-en { display: none; }k
+
+    .architecture-image-box {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(88,215,255,0.10);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .architecture-image-box img {
+      max-width: 100%;
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .architecture-diagram-card {
+      max-width: 850px;
+      margin: 28px auto;
+    }
+
+    .architecture-card ul {
+      color: var(--muted, #9ba7bb);
+      line-height: 1.8;
+      padding-left: 22px;
+    }
+
+    .architecture-card li::marker {
+      color: var(--cyan, #58d7ff);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="logo">&lt;Dev <span>/&gt;</span></div>
+
+    <nav class="main-nav">
+      <a href="index.html#home" data-pt="Home" data-en="Home">Home</a>
+      <a href="index.html#projects" class="active" data-pt="Projetos" data-en="Projects">Projetos</a>
+      <a href="index.html#certifications" data-pt="Certificações" data-en="Certifications">Certificações</a>
+      <a id="resumeLink" href="resume-en.html" data-pt="CV" data-en="Resume">Resume</a>
+      <a href="index.html#contact" data-pt="Contato" data-en="Contact">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="lang-btn" id="langToggle">EN</button>
+      <a href="index.html#contact" class="hire-btn" data-pt="Hire Me" data-en="Hire Me">Hire Me</a>
+    </div>
+  </header>
+
+  <main class="architecture-page scheduler-page">
+    <section class="architecture-hero scheduler-hero">
+      <div class="architecture-container scheduler-hero-container">
+        <p class="scheduler-project-label" data-pt="DOCUMENTAÇÃO TÉCNICA" data-en="TECHNICAL DOCUMENTATION">
+          DOCUMENTAÇÃO TÉCNICA
+        </p>
+
+        <h1 data-pt="Arquitetura do Scheduler com Microsoft 365" data-en="Microsoft 365 Scheduler Architecture">
+          Arquitetura do Scheduler com Microsoft 365
+        </h1>
+
+        <p class="architecture-subtitle scheduler-hero-subtitle"
+           data-pt="Documentação técnica do projeto de agendamento com Python, FastAPI, Microsoft Graph API, Outlook Calendar e Supabase."
+           data-en="Technical documentation for the scheduling project built with Python, FastAPI, Microsoft Graph API, Outlook Calendar, and Supabase.">
+          Documentação técnica do projeto de agendamento com Python, FastAPI, Microsoft Graph API, Outlook Calendar e Supabase.
+        </p>
+
+        <div class="architecture-actions scheduler-actions">
+          <a href="demo.html" class="btn btn-primary" data-pt="Ver Demo" data-en="View Demo">Ver Demo</a>
+          <a href="https://github.com/MMaciel202" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
+          <a href="index.html#projects" class="btn btn-outline" data-pt="Voltar aos Projetos" data-en="Back to Projects">Voltar aos Projetos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture-content">
+      <div class="architecture-container">
+
+        <div class="architecture-card hover-cyan">
+          <h2 data-pt="Visão Geral" data-en="Overview">Visão Geral</h2>
+          <p data-pt="Este projeto demonstra um fluxo real de agendamento usando uma página de portfolio como frontend, uma API Python/FastAPI como backend, Microsoft Graph para integração com Outlook Calendar e Supabase para persistência dos registros."
+             data-en="This project demonstrates a real scheduling workflow using a portfolio page as the frontend, a Python/FastAPI API as the backend, Microsoft Graph for Outlook Calendar integration, and Supabase for booking persistence.">
+            Este projeto demonstra um fluxo real de agendamento usando uma página de portfolio como frontend, uma API Python/FastAPI como backend, Microsoft Graph para integração com Outlook Calendar e Supabase para persistência dos registros.
+          </p>
+        </div>
+
+        <div class="architecture-card hover-cyan architecture-diagram-card">
+          <h2 data-pt="Diagrama da Arquitetura" data-en="Architecture Diagram">Diagrama da Arquitetura</h2>
+          <p data-pt="Fluxo completo do agendamento, criação do evento no Outlook, persistência no Supabase e cancelamento seguro."
+             data-en="Complete scheduling flow, Outlook event creation, Supabase persistence, and secure cancellation.">
+            Fluxo completo do agendamento, criação do evento no Outlook, persistência no Supabase e cancelamento seguro.
+          </p>
+
+          <div class="architecture-image-box">
+            <img class="arch-img-pt" src="img/scheduler/diagram-architecture-pt.png" alt="Diagrama da arquitetura do Scheduler em português">
+            <img class="arch-img-en" src="img/scheduler/diagram-architecture-en.png" alt="Scheduler architecture diagram in English">
+          </div>
+        </div>
+
+        <div class="scheduler-row">
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Componentes Principais" data-en="Core Components">Componentes Principais</h2>
+            <ul>
+              <li data-pt="Frontend estático com HTML, CSS e JavaScript" data-en="Static frontend with HTML, CSS, and JavaScript">Frontend estático com HTML, CSS e JavaScript</li>
+              <li data-pt="Backend com Python e FastAPI" data-en="Backend with Python and FastAPI">Backend com Python e FastAPI</li>
+              <li data-pt="Microsoft Graph API para integração com Outlook Calendar" data-en="Microsoft Graph API for Outlook Calendar integration">Microsoft Graph API para integração com Outlook Calendar</li>
+              <li data-pt="Supabase para armazenar bookings e tokens" data-en="Supabase to store bookings and tokens">Supabase para armazenar bookings e tokens</li>
+              <li data-pt="Cancelamento seguro usando token" data-en="Secure cancellation using token">Cancelamento seguro usando token</li>
+            </ul>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Funcionalidades" data-en="Features">Funcionalidades</h2>
+            <ul>
+              <li data-pt="Consulta de horários disponíveis" data-en="Available time-slot lookup">Consulta de horários disponíveis</li>
+              <li data-pt="Criação de appointments no Outlook" data-en="Outlook appointment creation">Criação de appointments no Outlook</li>
+              <li data-pt="Validação contra horários duplicados" data-en="Duplicate time-slot validation">Validação contra horários duplicados</li>
+              <li data-pt="Bloqueio de finais de semana" data-en="Weekend availability blocked">Bloqueio de finais de semana</li>
+              <li data-pt="Cancelamento e liberação do horário" data-en="Cancellation and time-slot release">Cancelamento e liberação do horário</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scheduler-row">
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Página Demo" data-en="Demo Page">Página Demo</h2>
+            <p data-pt="Interface usada para selecionar datas, visualizar horários disponíveis, criar reservas e cancelar appointments."
+               data-en="Interface used to select dates, view available time slots, create bookings, and cancel appointments.">
+              Interface usada para selecionar datas, visualizar horários disponíveis, criar reservas e cancelar appointments.
+            </p>
+            <div class="architecture-image-box">
+              <img class="arch-img-pt" src="img/scheduler/scheduler-demo-page-pt.png" alt="Página demo em português">
+              <img class="arch-img-en" src="img/scheduler/scheduler-demo-page-en.png" alt="Demo page in English">
+            </div>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Horários Disponíveis" data-en="Available Slots">Horários Disponíveis</h2>
+            <p data-pt="Após selecionar uma data, a API retorna somente horários disponíveis, evitando conflitos com bookings existentes."
+               data-en="After selecting a date, the API returns only available time slots, preventing conflicts with existing bookings.">
+              Após selecionar uma data, a API retorna somente horários disponíveis, evitando conflitos com bookings existentes.
+            </p>
+            <div class="architecture-image-box">
+              <img class="arch-img-pt" src="img/scheduler/scheduler-fastapi-docs-slots-pt.png" alt="Horários disponíveis em português">
+              <img class="arch-img-en" src="img/scheduler/scheduler-fastapi-docs-slots-en.png" alt="Available slots in English">
+            </div>
+          </div>
+        </div>
+
+        <div class="scheduler-row">
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Booking Criado" data-en="Booking Created">Booking Criado</h2>
+            <p data-pt="Confirmação visual da reserva criada com sucesso e token de cancelamento gerado."
+               data-en="Visual confirmation of the booking created successfully and cancellation token generated.">
+              Confirmação visual da reserva criada com sucesso e token de cancelamento gerado.
+            </p>
+            <div class="architecture-image-box">
+              <img class="arch-img-pt" src="img/scheduler/scheduler-fastapi-docs-book-pt.png" alt="Booking criado em português">
+              <img class="arch-img-en" src="img/scheduler/scheduler-fastapi-docs-book-en.png" alt="Booking created in English">
+            </div>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Cancelamento" data-en="Cancellation">Cancelamento</h2>
+            <p data-pt="Cancelamento realizado com token seguro, removendo o evento do Outlook e atualizando o status no Supabase."
+               data-en="Cancellation performed with a secure token, removing the Outlook event and updating the status in Supabase.">
+              Cancelamento realizado com token seguro, removendo o evento do Outlook e atualizando o status no Supabase.
+            </p>
+            <div class="architecture-image-box">
+              <img class="arch-img-pt" src="img/scheduler/scheduler-fastapi-docs-cancel-pt.png" alt="Cancelamento em português">
+              <img class="arch-img-en" src="img/scheduler/scheduler-fastapi-docs-cancel-en.png" alt="Cancellation in English">
+            </div>
+          </div>
+        </div>
+
+        <div class="scheduler-row">
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Outlook Calendar" data-en="Outlook Calendar">Outlook Calendar</h2>
+            <p data-pt="Evento criado no calendário Appointments usando Microsoft Graph API."
+               data-en="Event created in the Appointments calendar using Microsoft Graph API.">
+              Evento criado no calendário Appointments usando Microsoft Graph API.
+            </p>
+            <div class="architecture-image-box">
+              <img class="arch-img-pt" src="img/scheduler/scheduler-outlook-calendar-pt.png" alt="Outlook Calendar em português">
+              <img class="arch-img-en" src="img/scheduler/scheduler-outlook-calendar-en.png" alt="Outlook Calendar in English">
+            </div>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Supabase Bookings" data-en="Supabase Bookings">Supabase Bookings</h2>
+            <p data-pt="Tabela bookings armazenando data, horário, status, token de cancelamento e referência do evento."
+               data-en="Bookings table storing date, time, status, cancellation token, and event reference.">
+              Tabela bookings armazenando data, horário, status, token de cancelamento e referência do evento.
+            </p>
+            <div class="architecture-image-box">
+              <img src="img/scheduler/scheduler-supabase-bookings.png" alt="Supabase bookings table">
+            </div>
+          </div>
+        </div>
+
+        <div class="scheduler-row">
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="API em Execução" data-en="Running API">API em Execução</h2>
+            <p data-pt="Terminal mostrando a API FastAPI rodando localmente com Uvicorn."
+               data-en="Terminal showing the FastAPI application running locally with Uvicorn.">
+              Terminal mostrando a API FastAPI rodando localmente com Uvicorn.
+            </p>
+            <div class="architecture-image-box">
+              <img src="img/scheduler/scheduler-terminal-running.png" alt="FastAPI terminal running">
+            </div>
+          </div>
+
+          <div class="architecture-card hover-cyan scheduler-card">
+            <h2 data-pt="Estrutura do Projeto" data-en="Project Structure">Estrutura do Projeto</h2>
+            <p data-pt="Organização do projeto Python com separação entre rotas, serviços, database e scripts."
+               data-en="Python project organization separating routes, services, database, and scripts.">
+              Organização do projeto Python com separação entre rotas, serviços, database e scripts.
+            </p>
+            <div class="architecture-image-box">
+              <img src="img/scheduler/scheduler-vscode-structure.png" alt="VS Code project structure">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    function syncArchitectureLanguage() {
+      const saved =
+        localStorage.getItem("siteLanguage") ||
+        localStorage.getItem("preferredLanguage") ||
+        localStorage.getItem("language") ||
+        document.documentElement.lang ||
+        "pt";
+
+      const lang = saved.startsWith("en") ? "en" : "pt-BR";
+      document.documentElement.lang = lang;
+    }
+
+    syncArchitectureLanguage();
+
+    document.getElementById("langToggle")?.addEventListener("click", () => {
+      setTimeout(syncArchitectureLanguage, 50);
+    });
+  </script>
+</body>
+</html>
