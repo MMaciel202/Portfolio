@@ -31,3 +31,8 @@ venv/
 ~$*.docx
 *old*
 *Copy*
+js/*old*
+js/demo.js
+css/*old*
+css/demo.css
+demo.html
